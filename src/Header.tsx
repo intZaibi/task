@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import TabComponent from "./components/Tabs";
 
-const ChromeTabBar = () => {
+const Header = () => {
   const [tabs, setTabs] = useState([
     { id: 1, title: "New Tab", isActive: true },
   ]);
@@ -156,4 +156,4 @@ const ChromeTabBar = () => {
   );
 };
 
-export default ChromeTabBar;
+export default Header;
