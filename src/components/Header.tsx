@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import TabComponent from "./Tabs";
 
-const ChromeTabBar = () => {
+const Header = () => {
   const [tabs, setTabs] = useState([
     { id: 1, title: "New Tab", isActive: true },
   ]);
@@ -94,8 +94,16 @@ const ChromeTabBar = () => {
         {/* Address Bar Input */}
         <div className="address-input-container">
           <div className="address-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" className="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="#4285F4">
+              <circle cx="12" cy="12" r="10" fill="#4285F4" />
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                fill="#4285F4"
+              />
+              <path
+                d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c1.66 0 3.14-.69 4.22-1.78L13 13h-1v-1h3v3h-1v-1.22C15.31 15.14 13.76 16 12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4c1.11 0 2.11.45 2.83 1.17L16 8c-1.25-1.25-2.97-2-4.83-2H12z"
+                fill="white"
+              />
             </svg>
           </div>
           <input
@@ -148,4 +156,4 @@ const ChromeTabBar = () => {
   );
 };
 
-export default ChromeTabBar;
+export default Header;
