@@ -77,6 +77,8 @@ The output will be in the `dist/` directory.
 * [React](https://reactjs.org/)
 * [Vite](https://vitejs.dev/)
 * Vanilla CSS
+* VS Code
+* ChatGPT & Claude for quick task completion
 
 ---
 
