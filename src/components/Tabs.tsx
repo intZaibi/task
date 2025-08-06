@@ -1,20 +1,11 @@
-export default function TabComponent ({ tab, index, tabs, activateTab, closeTab }: any) {
-    return (
+export default function TabsComponent ({ tab, index, tabs, activateTab, closeTab }: any) {
+  console.log(tab.isActive, index);
+  return (
     <div
       className={`tab${tab.isActive ? " active" : ""}${
         index === tabs.length - 1 && tabs.length > 1 ? " slide-in" : ""
       }`}
       onClick={() => activateTab(tab.id)}
-      onMouseEnter={(e) => {
-        if (!tab.isActive) {
-          e.currentTarget.classList.add("hovered");
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (!tab.isActive) {
-          e.currentTarget.classList.remove("hovered");
-        }
-      }}
     >
       {/* Tab Content */}
       <div className="tab-content">
@@ -33,15 +24,7 @@ export default function TabComponent ({ tab, index, tabs, activateTab, closeTab 
       {/* Close Button */}
       <div
         className={`tab-close${tabs.length === 1 ? " disabled" : ""}`}
-        onClick={(e) => closeTab(tab.id, e)}
-        onMouseEnter={(e) => {
-          if (tabs.length > 1) {
-            e.currentTarget.classList.add("hovered");
-          }
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.classList.remove("hovered");
-        }}
+        onClick={() => closeTab(tab.id)}
       >
         <svg viewBox="0 0 24 24" width="12" height="12" fill="#9AA0A6">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />

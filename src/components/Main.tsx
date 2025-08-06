@@ -1,19 +1,4 @@
-const mainContent = () => {
-  // For search bar shadow on hover
-  const handleSearchBarMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.classList.add("search-bar-hover");
-  };
-  const handleSearchBarMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.classList.remove("search-bar-hover");
-  };
-
-  // For customize button hover
-  const handleCustomizeMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.classList.add("customize-btn-hover");
-  };
-  const handleCustomizeMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.currentTarget.classList.remove("customize-btn-hover");
-  };
+export default function Main(){
 
   return (
     <div className="main-root">
@@ -22,7 +7,7 @@ const mainContent = () => {
         <span>Gmail</span>
         <span>Images</span>
         <div className="top-bar-apps">
-          <img width="16" height="16" src="public\dots.svg" alt="Apps" />
+          <img width="16" height="16" src="/dots.svg" alt="Apps" />
         </div>
         <div className="top-bar-avatar">G</div>
       </div>
@@ -32,7 +17,7 @@ const mainContent = () => {
         {/* Google Logo */}
         <img
           className="logo"
-          src="public\logo.png"
+          src="/logo.png"
           alt="Google Logo"
         />
 
@@ -40,8 +25,6 @@ const mainContent = () => {
         <div className="search-bar-container">
           <div
             className="search-bar"
-            onMouseEnter={handleSearchBarMouseEnter}
-            onMouseLeave={handleSearchBarMouseLeave}
           >
             <div className="search-bar-icon">
               <svg
@@ -66,10 +49,10 @@ const mainContent = () => {
             />
             <div className="search-bar-actions">
               <div className="search-bar-action-btn">
-                <img src="public\mic.svg" alt="Search" />
+                <img src="/mic.svg" alt="Search" />
               </div>
               <div className="search-bar-action-btn">
-                <img src="public\lens.svg" alt="Search" />
+                <img src="/lens.svg" alt="Search" />
               </div>
             </div>
           </div>
@@ -88,8 +71,6 @@ const mainContent = () => {
       {/* Bottom Right Customize Button */}
       <div
         className="customize-btn"
-        onMouseEnter={handleCustomizeMouseEnter}
-        onMouseLeave={handleCustomizeMouseLeave}
       >
         <svg viewBox="0 0 24 24" width="16" height="16" fill="#E8EAED">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -100,4 +81,4 @@ const mainContent = () => {
   );
 };
 
-export default mainContent;
+

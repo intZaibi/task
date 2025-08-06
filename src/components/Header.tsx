@@ -1,12 +1,11 @@
-import { useState, useRef } from "react";
-import TabComponent from "./Tabs";
+import { useState } from "react";
+import TabsComponent from "./Tabs";
 
 const Header = () => {
   const [tabs, setTabs] = useState([
     { id: 1, title: "New Tab", isActive: true },
   ]);
   const [nextId, setNextId] = useState(2);
-  const tabsContainerRef = useRef(null);
 
   const addTab = () => {
     const newTab = {
@@ -22,22 +21,21 @@ const Header = () => {
     setNextId(nextId + 1);
   };
 
-  const closeTab = (tabId: any, e: any) => {
-    e.stopPropagation();
+  const closeTab = (tabId: any) => {
     if (tabs.length === 1) return; // Do nothing if only 1 tab
 
     setTabs((prevTabs) => {
       const tabIndex = prevTabs.findIndex((tab) => tab.id === tabId);
       const wasActive = prevTabs[tabIndex].isActive;
-      const newTabs = prevTabs.filter((tab) => tab.id !== tabId);
+      const updatedTabs = prevTabs.filter((tab) => tab.id !== tabId);
 
       // If closed tab was active, make adjacent tab active
-      if (wasActive && newTabs.length > 0) {
-        const newActiveIndex = Math.min(tabIndex, newTabs.length - 1);
-        newTabs[newActiveIndex].isActive = true;
+      if (wasActive && updatedTabs.length > 0) {
+        const newActiveIndex = Math.min(tabIndex, updatedTabs.length - 1);
+        updatedTabs[newActiveIndex].isActive = true;
       }
 
-      return newTabs;
+      return updatedTabs;
     });
   };
 
@@ -55,21 +53,15 @@ const Header = () => {
       <div className="title-bar">
         {/* Tab Bar */}
         <div className="tab-bar">
-          <div ref={tabsContainerRef} className="tabs-container">
+          <div className="tabs-container">
             {tabs.map((tab, index) => (
-              <TabComponent key={tab.id} tab={tab} index={index} tabs={tabs} activateTab={activateTab} closeTab={closeTab} />
+              <TabsComponent key={tab.id} tab={tab} index={index} tabs={tabs} activateTab={activateTab} closeTab={closeTab} />
             ))}
           </div>
           {/* Add Tab Button */}
           <div
             className="add-tab"
             onClick={addTab}
-            onMouseEnter={(e) => {
-              e.currentTarget.classList.add("hovered");
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.classList.remove("hovered");
-            }}
           >
             <svg viewBox="0 0 24 24" width="16" height="16" fill="#9AA0A6">
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
@@ -94,17 +86,8 @@ const Header = () => {
         {/* Address Bar Input */}
         <div className="address-input-container">
           <div className="address-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="#4285F4">
-              <circle cx="12" cy="12" r="10" fill="#4285F4" />
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
-                fill="#4285F4"
-              />
-              <path
-                d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c1.66 0 3.14-.69 4.22-1.78L13 13h-1v-1h3v3h-1v-1.22C15.31 15.14 13.76 16 12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4c1.11 0 2.11.45 2.83 1.17L16 8c-1.25-1.25-2.97-2-4.83-2H12z"
-                fill="white"
-              />
-            </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" className="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
+
           </div>
           <input
             type="text"

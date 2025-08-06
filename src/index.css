@@ -24,11 +24,10 @@
   font-family: 'Segoe UI', Roboto, sans-serif;
 }
 .title-bar {
-  height: 30px;
+  height: 35px;
   background-color: #202124;
   display: flex;
   align-items: center;
-  padding-left: 8px;
   border-bottom: 1px solid #3C4043;
 }
 .tab-bar {
@@ -55,10 +54,7 @@
   max-width: 240px;
   height: 36px;
   background-color: #1F2023;
-  border: 1px solid transparent;
-  border-bottom: none;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 12px;
   margin-right: -1px;
   cursor: pointer;
   position: relative;
@@ -77,7 +73,7 @@
 .tab.slide-in {
   animation: slideIn 0.2s ease-out;
 }
-.tab.hovered:not(.active) {
+.tab:hover:not(.active) {
   background-color: #2A2D30 !important;
 }
 .tab-content {
@@ -137,7 +133,7 @@
   opacity: 0.3;
   pointer-events: none;
 }
-.tab-close.hovered:not(.disabled) {
+.tab-close:hover:not(.disabled) {
   background-color: #5F6368 !important;
   opacity: 1 !important;
 }
@@ -154,7 +150,7 @@
   transition: background-color 0.1s ease;
   background-color: transparent;
 }
-.add-tab.hovered {
+.add-tab:hover {
   background-color: #3C4043 !important;
 }
 .window-controls {
@@ -212,12 +208,21 @@
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
-  border: 1px solid #5F6368;
+  border: 1px solid #303134;
+}
+.address-input-container:hover {
+  background-color: #3C4043;
+}
+.address-input-container:has(.address-input:focus) {
+  border: 1px solid #468ee6;
 }
 .address-icon {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px; 
   margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .address-input {
   flex: 1;
@@ -349,7 +354,7 @@
   display: flex;
   align-items: center;
   background-color: white;
-  border: 1px solid #5F6368;
+  border: 3px solid #5F6368;
   border-radius: 24px;
   height: 44px;
   padding-left: 16px;
@@ -357,7 +362,7 @@
   transition: box-shadow 0.2s ease;
   cursor: text;
 }
-.search-bar-hover {
+.search-bar:hover {
   box-shadow: 0 2px 5px 1px rgba(255,255,255,0.1);
 }
 .search-bar-icon {
@@ -371,9 +376,15 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: #E8EAED;
+  color: #6c6c6c;
   font-size: 16px;
   font-family: inherit;
+}
+.search-bar:hover {
+  border: 3px solid #468ee6;
+}
+.search-bar:has(.search-bar-input:focus) {
+  border: 3px solid #468ee6;
 }
 .search-bar-actions {
   display: flex;
@@ -441,6 +452,6 @@
   gap: 8px;
   transition: background-color 0.2s ease;
 }
-.customize-btn-hover {
+.customize-btn:hover {
   background-color: #3C4043 !important;
 }

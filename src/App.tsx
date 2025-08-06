@@ -1,5 +1,5 @@
 import './index.css'
-import ChromeNewTab from './components/Main'
+import Main from './components/Main'
 import Header from './components/Header'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='app'>
       <Header/>
-      <ChromeNewTab />
+      <Main />
     </div>
   )
 }
